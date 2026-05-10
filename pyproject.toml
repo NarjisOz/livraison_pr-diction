@@ -1,0 +1,21 @@
+[project]
+name = "logistics-ai-prediction-platform"
+version = "1.0.0"
+description = "Production-oriented Streamlit application for automated delivery delay prediction."
+requires-python = ">=3.11"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["delivery_delay*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+src = ["src", "scripts", "pages"]

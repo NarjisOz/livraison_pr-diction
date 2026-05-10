@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+.venv311/
+venv/
+
+# Large local data and generated artifacts
+data/raw/*
+!data/raw/nigeria_cities_weather_data.csv
+!data/raw/test_sample.csv
+data/*.csv
+!sample_data/*.csv
+artifacts/
+reports/
+models/*.pkl
+
+# Local editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
