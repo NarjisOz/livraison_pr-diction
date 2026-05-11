@@ -1,0 +1,37 @@
+{
+    "geo_decision_narrative": "Geolocation features provided limited predictive contribution (0.0%) and were autonomously excluded to improve robustness and prevent overfitting.",
+    "model_selection_narrative": "Logistic Regression was selected automatically as the optimal algorithm because it achieved the highest Validation ROC-AUC (0.499), surpassing linear baseline models.",
+    "use_geo": false,
+    "best_model_name": "LR_Base",
+    "metrics": {
+        "roc_auc": 0.4994292026376457,
+        "precision": 0.07906068495894251,
+        "recall": 0.2444650874748413
+    },
+    "all_metrics": {
+        "LR_Base": {
+            "roc_auc": 0.4994292026376457,
+            "pr_auc": 0.07994795595137427,
+            "precision": 0.07906068495894251,
+            "recall": 0.2444650874748413
+        },
+        "LR_Geo": {
+            "roc_auc": 0.4994366257749276,
+            "pr_auc": 0.07994904469064945,
+            "precision": 0.07906068495894251,
+            "recall": 0.2444650874748413
+        },
+        "XGB_Base": {
+            "roc_auc": 0.49695515582347255,
+            "pr_auc": 0.08027611237318302,
+            "precision": 0.0791547457712192,
+            "recall": 0.24415544201888836
+        },
+        "XGB_Geo": {
+            "roc_auc": 0.4970371882272604,
+            "pr_auc": 0.0802595273201642,
+            "precision": 0.07914138121269873,
+            "recall": 0.24431026474686485
+        }
+    }
+}

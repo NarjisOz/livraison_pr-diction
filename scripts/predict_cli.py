@@ -1,32 +1,27 @@
-"""Generate predictions with a saved delivery-delay model artifact."""
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import argparse
-from pathlib import Path
-
-from delivery_delay.config import DEFAULT_MODEL_PATH
-from delivery_delay.data_io import read_tabular_file
-from delivery_delay.prediction import load_model_artifact, predict_dataframe
-
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Predict delivery delays for new data.")
-    parser.add_argument("input", help="Path to CSV, Excel, or Parquet prediction data.")
-    parser.add_argument("--model", default=str(DEFAULT_MODEL_PATH), help="Saved joblib artifact path.")
-    parser.add_argument("--output", default="data/predictions.csv", help="CSV output path.")
-    return parser.parse_args()
-
+import pandas as pd
+from modules.predict import load_artifacts, predict_new_data
 
 def main():
-    args = parse_args()
-    artifact = load_model_artifact(args.model)
-    df = read_tabular_file(args.input)
-    predictions = predict_dataframe(artifact, df)
-
-    output = Path(args.output)
-    output.parent.mkdir(parents=True, exist_ok=True)
-    predictions.to_csv(output, index=False)
-    print("Predictions saved to {}".format(output))
-
+    if len(sys.argv) < 2:
+        print("Usage: python predict_cli.py input.csv [output.csv]")
+        sys.exit(1)
+    input_file = sys.argv[1]
+    output_file = sys.argv[2] if len(sys.argv) > 2 else '../data/predictions/predictions.csv'
+    print("Chargement des artefacts...")
+    model, scaler, product_stats, label_encoders, feature_columns, city_info = load_artifacts('models/')
+    print(f"Chargement de {input_file}...")
+    new_data = pd.read_csv(input_file)
+    print("Prédiction en cours...")
+    proba, pred = predict_new_data(new_data, model, scaler, product_stats,
+                                   label_encoders, feature_columns, city_info)
+    new_data['pred_prob'] = proba
+    new_data['pred_delayed'] = pred
+    new_data.to_csv(output_file, index=False)
+    print(f"✅ Prédictions sauvegardées dans {output_file}")
 
 if __name__ == "__main__":
     main()

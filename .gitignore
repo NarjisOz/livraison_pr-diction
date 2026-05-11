@@ -1,22 +1,55 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-.pytest_cache/
-.ruff_cache/
-.venv/
-.venv311/
-venv/
+*$py.class
 
-# Large local data and generated artifacts
-data/raw/*
-!data/raw/nigeria_cities_weather_data.csv
-!data/raw/test_sample.csv
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Data
+# We ignore the raw data to save space on GitHub, since models are already trained
+data/raw/
 data/*.csv
-!sample_data/*.csv
-artifacts/
-reports/
-models/*.pkl
+!data/README.md
 
-# Local editor and OS files
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Streamlit
+.streamlit/
+
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-.vscode/

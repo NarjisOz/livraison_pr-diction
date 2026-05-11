@@ -1,3 +1,101 @@
-import pandas as pd
-df = pd.read_parquet('data/raw/nigerian_retail_and_ecommerce_supply_chain_logistics_data.parquet')
-df.head(100).to_csv('data/raw/test_sample.csv', index=False)
+shipment_id,product_id,supplier_name,origin_city,destination_city,ship_date,expected_delivery_date,actual_delivery_date,quantity,shipping_cost_ngn,logistics_company,delivery_status
+SHIP0000000,PRD81347,Supplier_B,Abuja,Warri,2024-03-23,2024-03-29,2024-03-27,828,18379.93,DHL Nigeria,delayed
+SHIP0000001,PRD68757,Supplier_D,Kano,Jos,2024-06-10,2024-06-21,2024-06-20,329,91632.07,Fedex Nigeria,delivered
+SHIP0000002,PRD34311,Supplier_E,Lagos,Port Harcourt,2024-10-15,2024-10-19,2024-10-18,203,77141.08,Ace Couriers,delivered
+SHIP0000003,PRD14597,Supplier_D,Lagos,Ibadan,2024-02-05,2024-02-19,2024-02-24,20,69484.82,Kwik Delivery,in_transit
+SHIP0000004,PRD98159,Supplier_D,Lagos,Enugu,2024-03-31,2024-04-09,2024-04-14,465,47054.82,Kwik Delivery,delivered
+SHIP0000005,PRD89944,Supplier_A,Lagos,Warri,2024-01-22,2024-02-04,2024-02-09,85,51899.29,Dispatch Riders,delivered
+SHIP0000006,PRD70263,Supplier_D,Abuja,Enugu,2024-06-14,2024-06-24,2024-06-22,330,70233.38,DHL Nigeria,delivered
+SHIP0000007,PRD59323,Supplier_D,Abuja,Ibadan,2024-07-02,2024-07-13,2024-07-11,990,81770.23,Dispatch Riders,delivered
+SHIP0000008,PRD19755,Supplier_C,Lagos,Kano,2024-03-30,2024-03-31,2024-03-30,435,30501.14,Red Star Express,delivered
+SHIP0000009,PRD12251,Supplier_A,Port Harcourt,Ilorin,2024-06-27,2024-06-28,2024-06-26,551,37823.39,DHL Nigeria,delivered
+SHIP0000010,PRD65738,Supplier_B,Port Harcourt,Warri,2024-08-22,2024-08-27,2024-08-25,87,25155.98,DHL Nigeria,delivered
+SHIP0000011,PRD48970,Supplier_D,Abuja,Lagos,2024-10-13,2024-10-18,2024-10-23,92,42449.57,Red Star Express,in_transit
+SHIP0000012,PRD74848,Supplier_A,Port Harcourt,Ilorin,2024-08-15,2024-08-22,2024-08-26,643,56645.33,Kwik Delivery,cancelled
+SHIP0000013,PRD64364,Supplier_E,Abuja,Abeokuta,2024-09-08,2024-09-13,2024-09-11,668,32758.11,Kwik Delivery,in_transit
+SHIP0000014,PRD94435,Supplier_B,Abuja,Kaduna,2024-03-08,2024-03-19,2024-03-17,411,87558.29,Dispatch Riders,delayed
+SHIP0000015,PRD57828,Supplier_C,Port Harcourt,Abeokuta,2024-01-14,2024-01-21,2024-01-25,629,71272.5,Dispatch Riders,delivered
+SHIP0000016,PRD22615,Supplier_E,Lagos,Benin City,2024-03-02,2024-03-05,2024-03-05,271,87860.99,DHL Nigeria,delivered
+SHIP0000017,PRD91542,Supplier_A,Kano,Abuja,2024-05-13,2024-05-22,2024-05-25,833,10562.32,Kwik Delivery,in_transit
+SHIP0000018,PRD69182,Supplier_A,Kano,Warri,2024-10-23,2024-11-05,2024-11-10,515,14775.72,Red Star Express,delivered
+SHIP0000019,PRD22851,Supplier_E,Kano,Aba,2024-05-04,2024-05-05,2024-05-05,580,88414.33,DHL Nigeria,delivered
+SHIP0000020,PRD29494,Supplier_D,Kano,Enugu,2024-02-25,2024-03-08,2024-03-07,102,39056.83,DHL Nigeria,delivered
+SHIP0000021,PRD41807,Supplier_E,Lagos,Benin City,2024-04-27,2024-05-04,2024-05-08,227,13702.58,Dispatch Riders,delivered
+SHIP0000022,PRD19712,Supplier_B,Port Harcourt,Enugu,2024-05-16,2024-05-20,2024-05-24,150,7474.22,Dispatch Riders,delivered
+SHIP0000023,PRD15836,Supplier_D,Lagos,Warri,2024-06-17,2024-06-23,2024-06-25,725,37139.53,Kwik Delivery,delivered
+SHIP0000024,PRD99946,Supplier_B,Port Harcourt,Warri,2024-03-15,2024-03-28,2024-03-27,615,57965.51,Ace Couriers,delivered
+SHIP0000025,PRD22576,Supplier_B,Kano,Ilorin,2024-02-23,2024-03-05,2024-03-05,290,18094.41,Dispatch Riders,delivered
+SHIP0000026,PRD77165,Supplier_C,Kano,Kano,2024-02-20,2024-02-26,2024-02-28,931,6586.84,DHL Nigeria,delivered
+SHIP0000027,PRD39978,Supplier_C,Lagos,Abuja,2024-08-17,2024-08-30,2024-09-01,118,70253.68,Dispatch Riders,delivered
+SHIP0000028,PRD93706,Supplier_D,Kano,Abuja,2024-07-22,2024-07-31,2024-08-04,212,27135.27,Ace Couriers,in_transit
+SHIP0000029,PRD52946,Supplier_B,Lagos,Benin City,2024-03-15,2024-03-19,2024-03-17,168,34705.98,GIG Logistics,delivered
+SHIP0000030,PRD95509,Supplier_A,Kano,Lagos,2024-09-26,2024-10-10,2024-10-12,541,49618.33,Fedex Nigeria,delivered
+SHIP0000031,PRD83159,Supplier_C,Lagos,Port Harcourt,2024-09-01,2024-09-13,2024-09-14,552,23512.35,Ace Couriers,delivered
+SHIP0000032,PRD43336,Supplier_A,Abuja,Ilorin,2024-10-25,2024-11-04,2024-11-03,628,46731.47,DHL Nigeria,delivered
+SHIP0000033,PRD95127,Supplier_B,Abuja,Warri,2024-09-13,2024-09-25,2024-09-23,900,34106.95,DHL Nigeria,delivered
+SHIP0000034,PRD12698,Supplier_D,Abuja,Kano,2024-07-02,2024-07-08,2024-07-06,526,42749.05,Ace Couriers,delivered
+SHIP0000035,PRD58726,Supplier_B,Abuja,Enugu,2024-05-29,2024-05-31,2024-06-02,327,20953.0,Dispatch Riders,delayed
+SHIP0000036,PRD70891,Supplier_D,Port Harcourt,Ilorin,2024-08-22,2024-09-05,2024-09-08,626,11112.09,GIG Logistics,delivered
+SHIP0000037,PRD46761,Supplier_D,Port Harcourt,Jos,2024-04-20,2024-05-02,2024-05-06,739,54387.45,Fedex Nigeria,delivered
+SHIP0000038,PRD63795,Supplier_D,Abuja,Enugu,2024-03-12,2024-03-13,2024-03-14,394,35190.3,Dispatch Riders,delivered
+SHIP0000039,PRD52304,Supplier_A,Abuja,Jos,2024-05-18,2024-05-21,2024-05-19,288,63350.38,DHL Nigeria,delivered
+SHIP0000040,PRD16223,Supplier_D,Kano,Jos,2024-07-24,2024-07-26,2024-07-26,446,22721.47,Fedex Nigeria,delivered
+SHIP0000041,PRD58553,Supplier_D,Abuja,Enugu,2024-08-28,2024-09-07,2024-09-09,317,81137.03,Ace Couriers,in_transit
+SHIP0000042,PRD48058,Supplier_D,Abuja,Aba,2024-02-18,2024-02-26,2024-03-01,148,27182.98,Fedex Nigeria,delivered
+SHIP0000043,PRD78984,Supplier_C,Lagos,Kaduna,2024-01-25,2024-02-03,2024-02-07,512,17966.52,Fedex Nigeria,delivered
+SHIP0000044,PRD72225,Supplier_C,Abuja,Port Harcourt,2024-09-22,2024-10-04,2024-10-08,261,50774.99,Fedex Nigeria,delivered
+SHIP0000045,PRD77891,Supplier_D,Kano,Abeokuta,2024-01-23,2024-01-28,2024-01-27,200,36208.21,GIG Logistics,delivered
+SHIP0000046,PRD61335,Supplier_D,Port Harcourt,Ilorin,2024-02-08,2024-02-17,2024-02-16,508,91066.98,DHL Nigeria,delivered
+SHIP0000047,PRD15478,Supplier_D,Port Harcourt,Abuja,2024-09-26,2024-09-30,2024-10-02,943,22917.81,Dispatch Riders,delivered
+SHIP0000048,PRD32768,Supplier_D,Lagos,Onitsha,2024-05-12,2024-05-18,2024-05-17,735,61867.54,GIG Logistics,delivered
+SHIP0000049,PRD88383,Supplier_C,Lagos,Kano,2024-04-20,2024-04-21,2024-04-20,79,58073.39,Dispatch Riders,delivered
+SHIP0000050,PRD69168,Supplier_D,Kano,Jos,2024-02-03,2024-02-15,2024-02-16,930,99700.93,DHL Nigeria,cancelled
+SHIP0000051,PRD87805,Supplier_A,Kano,Kano,2024-09-06,2024-09-14,2024-09-18,209,12937.2,Fedex Nigeria,delayed
+SHIP0000052,PRD14017,Supplier_A,Lagos,Onitsha,2024-07-13,2024-07-19,2024-07-24,710,53841.44,GIG Logistics,delivered
+SHIP0000053,PRD54808,Supplier_C,Kano,Ilorin,2024-06-27,2024-07-03,2024-07-08,334,38582.86,GIG Logistics,delayed
+SHIP0000054,PRD48987,Supplier_C,Abuja,Lagos,2024-06-04,2024-06-06,2024-06-06,373,98699.32,Kwik Delivery,delivered
+SHIP0000055,PRD81903,Supplier_E,Lagos,Calabar,2024-08-04,2024-08-11,2024-08-10,446,86508.16,GIG Logistics,delivered
+SHIP0000056,PRD41422,Supplier_C,Abuja,Abeokuta,2024-03-12,2024-03-25,2024-03-29,113,42306.42,Fedex Nigeria,delivered
+SHIP0000057,PRD32088,Supplier_C,Lagos,Warri,2024-05-30,2024-06-03,2024-06-07,13,23273.86,Kwik Delivery,delivered
+SHIP0000058,PRD41337,Supplier_C,Port Harcourt,Ibadan,2024-02-24,2024-02-26,2024-02-24,482,81206.39,Fedex Nigeria,in_transit
+SHIP0000059,PRD42074,Supplier_B,Abuja,Onitsha,2024-06-23,2024-06-30,2024-07-01,54,6112.78,Fedex Nigeria,delayed
+SHIP0000060,PRD52684,Supplier_C,Lagos,Lagos,2024-05-31,2024-06-10,2024-06-11,74,14900.26,Red Star Express,delivered
+SHIP0000061,PRD21430,Supplier_B,Kano,Ilorin,2024-03-20,2024-03-26,2024-03-26,614,46510.5,Dispatch Riders,delivered
+SHIP0000062,PRD83319,Supplier_C,Port Harcourt,Onitsha,2024-10-11,2024-10-17,2024-10-18,284,84003.59,Kwik Delivery,in_transit
+SHIP0000063,PRD70782,Supplier_B,Lagos,Enugu,2024-01-20,2024-01-26,2024-01-26,647,6130.83,Kwik Delivery,delayed
+SHIP0000064,PRD48527,Supplier_B,Kano,Kano,2024-04-03,2024-04-12,2024-04-12,942,39015.29,GIG Logistics,delivered
+SHIP0000065,PRD81507,Supplier_B,Port Harcourt,Warri,2024-02-07,2024-02-19,2024-02-18,107,19593.82,Kwik Delivery,delivered
+SHIP0000066,PRD73206,Supplier_C,Lagos,Aba,2024-06-26,2024-07-06,2024-07-09,268,30031.06,Red Star Express,delivered
+SHIP0000067,PRD80459,Supplier_B,Lagos,Kano,2024-06-30,2024-07-12,2024-07-10,475,62603.14,DHL Nigeria,delivered
+SHIP0000068,PRD62584,Supplier_A,Lagos,Onitsha,2024-09-30,2024-10-14,2024-10-18,998,82025.8,Dispatch Riders,in_transit
+SHIP0000069,PRD22027,Supplier_E,Lagos,Ibadan,2024-03-30,2024-04-01,2024-03-31,318,9024.4,Dispatch Riders,delivered
+SHIP0000070,PRD54623,Supplier_A,Kano,Benin City,2024-05-20,2024-05-22,2024-05-25,428,81632.8,GIG Logistics,delivered
+SHIP0000071,PRD27355,Supplier_C,Port Harcourt,Aba,2024-05-03,2024-05-12,2024-05-12,950,76599.95,Ace Couriers,delivered
+SHIP0000072,PRD76788,Supplier_A,Abuja,Kano,2024-02-29,2024-03-13,2024-03-18,873,60610.87,Red Star Express,delivered
+SHIP0000073,PRD21239,Supplier_A,Kano,Enugu,2024-07-30,2024-08-12,2024-08-14,167,80559.74,Fedex Nigeria,delivered
+SHIP0000074,PRD18214,Supplier_A,Abuja,Onitsha,2024-07-27,2024-07-31,2024-08-03,222,45840.47,DHL Nigeria,in_transit
+SHIP0000075,PRD66261,Supplier_D,Abuja,Enugu,2024-02-21,2024-03-03,2024-03-03,107,77293.69,Kwik Delivery,delivered
+SHIP0000076,PRD83069,Supplier_D,Lagos,Jos,2024-09-02,2024-09-13,2024-09-17,446,68856.32,DHL Nigeria,cancelled
+SHIP0000077,PRD45696,Supplier_A,Kano,Ilorin,2024-08-13,2024-08-20,2024-08-18,529,13304.34,GIG Logistics,delivered
+SHIP0000078,PRD56867,Supplier_D,Lagos,Port Harcourt,2024-03-04,2024-03-09,2024-03-11,226,98372.82,Fedex Nigeria,delivered
+SHIP0000079,PRD85194,Supplier_C,Abuja,Onitsha,2024-02-06,2024-02-09,2024-02-09,404,38333.86,Dispatch Riders,delivered
+SHIP0000080,PRD51380,Supplier_B,Port Harcourt,Warri,2024-05-18,2024-05-22,2024-05-27,163,96911.78,Ace Couriers,delayed
+SHIP0000081,PRD46007,Supplier_E,Lagos,Warri,2024-06-02,2024-06-03,2024-06-08,879,7303.25,Dispatch Riders,delivered
+SHIP0000082,PRD19143,Supplier_B,Kano,Port Harcourt,2024-07-08,2024-07-20,2024-07-20,848,78203.55,DHL Nigeria,in_transit
+SHIP0000083,PRD67291,Supplier_C,Port Harcourt,Kaduna,2024-10-22,2024-11-01,2024-11-02,339,97224.44,Fedex Nigeria,delivered
+SHIP0000084,PRD89401,Supplier_A,Abuja,Kano,2024-10-12,2024-10-15,2024-10-15,970,73843.73,Kwik Delivery,delivered
+SHIP0000085,PRD66033,Supplier_B,Port Harcourt,Abuja,2024-02-29,2024-03-06,2024-03-10,932,87059.81,Fedex Nigeria,delivered
+SHIP0000086,PRD28275,Supplier_A,Lagos,Aba,2024-03-29,2024-04-10,2024-04-08,40,80981.03,GIG Logistics,in_transit
+SHIP0000087,PRD87259,Supplier_D,Abuja,Aba,2024-10-20,2024-10-30,2024-11-04,465,6586.83,Red Star Express,delivered
+SHIP0000088,PRD13681,Supplier_E,Lagos,Onitsha,2024-04-17,2024-04-19,2024-04-21,101,80740.94,Dispatch Riders,delivered
+SHIP0000089,PRD47357,Supplier_E,Kano,Aba,2024-07-24,2024-07-29,2024-08-03,905,20547.59,Fedex Nigeria,delivered
+SHIP0000090,PRD84043,Supplier_D,Port Harcourt,Kano,2024-09-22,2024-10-02,2024-10-01,101,99005.81,Kwik Delivery,delivered
+SHIP0000091,PRD43548,Supplier_B,Lagos,Aba,2024-06-11,2024-06-17,2024-06-19,306,79381.92,DHL Nigeria,delivered
+SHIP0000092,PRD36027,Supplier_A,Kano,Abeokuta,2024-05-07,2024-05-09,2024-05-08,201,52913.88,Dispatch Riders,delivered
+SHIP0000093,PRD63416,Supplier_A,Port Harcourt,Abeokuta,2024-03-27,2024-04-04,2024-04-06,392,40919.45,Ace Couriers,in_transit
+SHIP0000094,PRD35031,Supplier_A,Port Harcourt,Lagos,2024-06-02,2024-06-06,2024-06-09,921,91140.48,GIG Logistics,delivered
+SHIP0000095,PRD76878,Supplier_E,Abuja,Aba,2024-07-15,2024-07-21,2024-07-22,719,75469.69,DHL Nigeria,delivered
+SHIP0000096,PRD25267,Supplier_D,Abuja,Enugu,2024-06-29,2024-07-04,2024-07-04,97,63546.06,Fedex Nigeria,delivered
+SHIP0000097,PRD46305,Supplier_B,Lagos,Ibadan,2024-10-11,2024-10-18,2024-10-21,230,50087.32,GIG Logistics,delivered
+SHIP0000098,PRD40857,Supplier_E,Kano,Lagos,2024-03-03,2024-03-04,2024-03-04,888,31853.87,Fedex Nigeria,delivered
+SHIP0000099,PRD26017,Supplier_A,Port Harcourt,Jos,2024-07-21,2024-07-27,2024-07-28,704,72160.31,GIG Logistics,delivered
